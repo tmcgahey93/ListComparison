@@ -21,6 +21,10 @@ public class Main {
     // Missing in External: [T3]
     // Missing in Internal: [T4]
     // Mismatched Transactions: [T2 (Internal: 200.0, FAILED | External:
+
+    System.out.println("Hello, world!");
+
+
     }
 
 }
