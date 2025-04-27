@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReconciliationReport {
@@ -6,28 +7,35 @@ public class ReconciliationReport {
     private List<Transaction> missingInInternal;
     private List<String> mismatchedTransactions;
 
+    ReconciliationReport() {
+        this.missingInExternal = new ArrayList<>();
+        this.missingInInternal = new ArrayList<>();
+        this.mismatchedTransactions = new ArrayList<>();
+    }
+
     // Getters and Setters
     public List<Transaction> getMissingInExternal() {
         return missingInExternal;
     }
 
-    public void setMissingInExternal(List<Transaction> missingInExternal) {
-        this.missingInExternal = missingInExternal;
+    public void addMissingInExternal(Transaction t) {
+        missingInExternal.add(t);
     }
 
     public List<Transaction> getMissingInInternal() {
         return missingInInternal;
     }
     
-    public void setMissingInInternal(List<Transaction> missingInInternal) {
-        this.missingInInternal = missingInInternal;
+    public void addMissingInInternal(Transaction t) {
+        missingInInternal.add(t);
     }
+
     public List<String> getMismatchedTransactions() {
         return mismatchedTransactions;
     }
     
-    public void setMismatchedTransactions(List<String>mismatchedTransactions) {
-        this.mismatchedTransactions = mismatchedTransactions;
+    public void addMismatchedTransaction(String s) {
+        mismatchedTransactions.add(s);
     }
 
     @Override
