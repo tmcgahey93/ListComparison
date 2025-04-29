@@ -5,15 +5,15 @@ public class Main {
     public static void main(String[] args) {
     
         List<Transaction> internal = Arrays.asList(
-            new Transaction("T1", 100.0, "SUCCESS"),
-            new Transaction("T2", 200.0, "FAILED"),
-            new Transaction("T3", 150.0, "PENDING")
+            new Transaction("T1", 100.00, "SUCCESS"),
+            new Transaction("T2", 200.00, "FAILED"),
+            new Transaction("T3", 150.00, "PENDING")
         );
 
         List<Transaction> external = Arrays.asList(
-            new Transaction("T1", 100.0, "SUCCESS"),
-            new Transaction("T2", 250.0, "FAILED"),
-            new Transaction("T4", 300.0, "SUCCESS")
+            new Transaction("T1", 100.00, "SUCCESS"),
+            new Transaction("T2", 250.00, "FAILED"),
+            new Transaction("T4", 300.00, "SUCCESS")
         );
 
 
@@ -27,14 +27,6 @@ public class Main {
 
         System.out.println("Mismatched Transactions:");
         System.out.println(report.getMismatchedTransactions());
-
-        // Example Output:
-        // Missing in External: [T3]
-        // Missing in Internal: [T4]
-        // Mismatched Transactions: [T2 (Internal: 200.0, FAILED | External:
-
-        System.out.println("Exiting App");
-
 
     }
 
