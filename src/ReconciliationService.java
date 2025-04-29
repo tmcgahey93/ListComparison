@@ -1,22 +1,25 @@
-
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ReconciliationService {
 
     public static ReconciliationReport Reconcile(List<Transaction>internal, List<Transaction> external) {
 
-        Map<String, Transaction> internalMap = new HashMap<>();
-        Map<String, Transaction> externalMap = new HashMap<>();
+       // Map<String, Transaction> internalMap = new HashMap<>();
+        //Map<String, Transaction> externalMap = new HashMap<>();
 
-        for (Transaction t : internal) {
-            internalMap.put(t.getId(), t);
-        }
+        //for (Transaction t : internal) {
+          //  internalMap.put(t.getId(), t);
+        //}
 
-        for (Transaction t : external) {
-            externalMap.put(t.getId(), t);
-        }
+        //for (Transaction t : external) {
+          //  externalMap.put(t.getId(), t);
+       // }
+
+        Map<String, Transaction> internalMap = internal.stream().collect(Collectors.toMap(Transaction::getId, t -> t));
+
+        Map<String, Transaction> externalMap = external.stream().collect(Collectors.toMap(Transaction::getId, t -> t));
 
 
         ReconciliationReport report = new ReconciliationReport();
